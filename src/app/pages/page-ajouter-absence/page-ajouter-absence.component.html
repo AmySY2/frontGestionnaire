@@ -1,0 +1,45 @@
+<div class="title">
+  <h1 >Ajouter absence</h1>
+</div>
+
+
+ 
+<form [formGroup]="form" (ngSubmit)="saveAjout()" #f="ngForm">
+    <div class="form-row">
+        <div class="form-group col">
+            <label for="dateAbsence">DATE DE DEBUT</label>
+            <input type="date" formControlName="dateAbsence" class="form-control" [ngClass]="{ 'is-invalid': submitted && form.controls['dateAbsence'].errors }" />
+            <div *ngIf="submitted && form.controls['dateAbsence'].errors" class="invalid-feedback">
+                <div *ngIf="form.controls['dateAbsence'].errors['required']">Date de bedut oblogatoire</div>
+            </div>
+        </div>
+
+        <div class="form-group col">
+          <label for="dateAbsence">DATE DE FIN</label>
+          <input type="date" formControlName="dateAbsence" class="form-control" [ngClass]="{ 'is-invalid': submitted && form.controls['dateAbsence'].errors }" />
+          <div *ngIf="submitted && form.controls['dateAbsence'].errors" class="invalid-feedback">
+              <div *ngIf="form.controls['dateAbsence'].errors['required']">Date de fin oblogatoire</div>
+          </div>
+        </div>
+        <div class="form-group col">
+          <label for="motif">MOTIF</label>
+            <input type="text" formControlName="motif" class="form-control" [ngClass]="{ 'is-invalid': submitted && form.controls['motif'].errors }"  />
+            <div *ngIf="submitted && form.controls['motif'].errors" class="invalid-feedback">
+              <div *ngIf="form.controls['motif'].errors['required']">Motif est oblogatoire</div>
+          </div>
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group col">
+            <label for="document">DOCUMENT</label>
+            <input type="text" formControlName="document" class="form-control" />
+        </div>   
+    </div>
+      <div class="wrapper form-group">
+        <button [disabled]="loading" class="btn btn-primary">
+          <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+          Ajouter
+        </button>
+      </div>
+</form>

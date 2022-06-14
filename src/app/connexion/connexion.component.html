@@ -1,0 +1,33 @@
+
+<div id="sect1"class="container">
+  <form  [formGroup]="formControl" class="d-flex flex-column" (submit)="onConnexion()">
+
+    <!-- <div class="center"> -->
+      <mat-form-field appearance="fill">
+        <mat-label>Identifiant</mat-label>
+          <input     
+            formControlName = "identifiant"
+          matInput/>
+       <mat-error *ngIf="formControl.get('identifiant')?.hasError('required')">
+        Identifiant est <strong>obligatoire</strong>
+      </mat-error>
+      </mat-form-field >
+    <!-- </div> -->
+
+  <!-- <div class="center"> -->
+    <mat-form-field appearance="fill">
+      <mat-label>Mot de passe</mat-label>
+      <input 
+      type="password"
+      formControlName = "motDePasse"
+       matInput/>
+       <mat-error *ngIf="formControl.get('motDePasse')?.hasError('required')">
+        le mot de passe est <strong>obligatoire</strong>
+      </mat-error>
+    </mat-form-field>
+  <!-- </div> -->
+        <div class="regle">
+          <button mat-raised-button color = "primary" type= "submit"> Se connecter </button>
+        </div>
+  </form>
+</div>

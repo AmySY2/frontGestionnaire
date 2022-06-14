@@ -1,0 +1,15 @@
+<div *ngIf="utilisateur" class="main-div">
+  <mat-card class="card">
+    <mat-card-header>
+      <div mat-card-avatar>
+        <img src="https://images.unsplash.com/photo-1517365830460-955ce3ccd263?ixlib=rb-0.3.5&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ&s=b38c22a46932485790a3f52c61fcbe5a"  class="header-img">
+      </div>
+      <mat-card-title>{{utilisateur.nom}}</mat-card-title>
+      <mat-card-subtitle>{{utilisateur.email}}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <p>Nom : {{utilisateur.sub}}</p>
+      <p>Role : {{utilisateur.roles}}</p>
+    </mat-card-content>
+  </mat-card>
+</div>

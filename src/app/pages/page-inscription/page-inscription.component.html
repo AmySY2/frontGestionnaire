@@ -1,0 +1,104 @@
+<div class="title">
+  <h1 >Formulaire d'inscription</h1>
+</div>
+
+
+<form [formGroup]="form" (ngSubmit)="saveAjout()" #f="ngForm">
+  
+    <div class="form-row">
+        <div class="form-group col">
+            <label for="nom">NOM</label>
+            <input input type="text" formControlName="nom" class="form-control" [ngClass]="{ 'is-invalid': submitted && form.controls['nom'].errors }" />
+            <div  class="invalid-feedback" *ngIf="submitted && form.controls['nom'].errors" >
+                <div *ngIf="form.controls['nom'].errors['required']">Nom oblogatoire</div>
+            </div>
+        </div>
+
+        <div class="form-group col">
+            <label for="prenom">PRENOM</label>
+            <input input type="email" formControlName="prenom" class="form-control" [ngClass]="{ 'is-invalid': submitted && form.controls['prenom'].errors }" />
+            <div  class="invalid-feedback" *ngIf="submitted && form.controls['prenom'].errors" >
+                <div *ngIf="form.controls['prenom'].errors['required']">Prenom oblogatoire</div>
+            </div>
+        </div>
+    </div>
+
+
+      <div class="form-row">
+        <div class="form-group col">
+          <label for="dateDeNaissance">DATE DE NAISSANCE</label>
+          <input input type="date" formControlName="dateDeNaissance" class="form-control" [ngClass]="{ 'is-invalid': submitted && form.controls['dateDeNaissance'].errors }" />
+            <div  class="invalid-feedback" *ngIf="submitted && form.controls['dateDeNaissance'].errors" >
+                <div *ngIf="form.controls['dateDeNaissance'].errors['required']">Da de naissance oblogatoire</div>
+            </div>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group col">
+            <label for="email">EMAIL</label>
+            <input input type="email" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && form.controls['email'].errors }" />
+            <div  class="invalid-feedback" *ngIf="submitted && form.controls['email'].errors" >
+                <div *ngIf="form.controls['email'].errors['required']">L' email est oblogatoire</div>
+            </div>
+        </div>
+      </div>
+        
+        <div class="form-row">
+        <div class="form-group col">
+          <label for="adresse">ADRESSE</label>
+          <input input type="text" formControlName="adresse" class="form-control" [ngClass]="{ 'is-invalid': submitted && form.controls['adresse'].errors }" />
+            <div  class="invalid-feedback" *ngIf="submitted && form.controls['adresse'].errors" >
+                <div *ngIf="form.controls['adresse'].errors['required']">L'adresse est oblogatoire</div>
+            </div>
+        </div>
+        </div>
+
+        <div class="form-row">
+        <div class="form-group col">
+          <label for="telephone">TELEPHONE</label>
+          <input input type="text" formControlName="telephone" class="form-control" [ngClass]="{ 'is-invalid': submitted && form.controls['telephone'].errors }" />
+            <div  class="invalid-feedback" *ngIf="submitted && form.controls['telephone'].errors" >
+                <div *ngIf="form.controls['telephone'].errors['required']">Le numero de téléphone est oblogatoire</div>
+            </div>
+        </div>
+        </div>
+        
+        <div class="form-row">
+        <div class="form-group col">
+          <label for="numeroPoleEmploi">NUMERO POLE EMPLOI</label>
+          <input input type="text" formControlName="numeroPoleEmploi" class="form-control" [ngClass]="{ 'is-invalid': submitted && form.controls['numeroPoleEmploi'].errors }" />
+            <div  class="invalid-feedback" *ngIf="submitted && form.controls['numeroPoleEmploi'].errors" >
+                <div *ngIf="form.controls['numeroPoleEmploi'].errors['required']">Numero pole emploi oblogatoire</div>
+            </div>
+        </div>
+        </div>
+
+        <div class="form-row">
+        <div class="form-group col">
+          <label for="numeroSecu">NUMERO SECURITE SOCIAL</label>
+          <input input type="text" formControlName="numeroSecu" class="form-control" [ngClass]="{ 'is-invalid': submitted && form.controls['numeroSecu'].errors }" />
+            <div  class="invalid-feedback" *ngIf="submitted && form.controls['numeroSecu'].errors" >
+                <div *ngIf="form.controls['numeroSecu'].errors['required']">Numero securité social oblogatoire</div>
+            </div>
+        </div>
+        </div>
+        
+        <div class="form-row">
+        <div class="form-group col">
+          <label for="username">DOCUMENT</label>
+          <input type="text" formControlName="username" class="form-control" />
+          <div  class="invalid-feedback">
+              <div >à télécharger</div>
+          </div>
+        </div>
+        </div>
+       
+    
+    <div class="wrapper form-group">
+      <button [disabled]="loading" class="btn btn-primary">
+        <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+        Ajouter
+      </button>
+    </div>
+</form>

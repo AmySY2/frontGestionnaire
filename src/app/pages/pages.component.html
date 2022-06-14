@@ -1,0 +1,122 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark " style="background-color: #041937;">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">MNS</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarColor02"
+      aria-controls="navbarColor02"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarColor02">
+      <ul class="navbar-nav me-auto">
+
+        <!-- ////////////////////////   ADMIN    ////////////////////////////// -->
+
+        <li class="nav-item" *ngIf="hasRole('ROLE_ADMIN')">
+          <a class="nav-link " [routerLink]="['gestion-utilisateur']" [routerLinkActive]="['active']">
+            Gestion utilisateur
+          </a>
+        </li>
+
+        <li class="nav-item" *ngIf="hasRole('ROLE_ADMIN')">
+          <a class="nav-link" [routerLink]="['ajouter-absence']" [routerLinkActive]="['active']">
+            Ajouter absence
+          </a>
+        </li>
+
+        <li class="nav-item" *ngIf="hasRole('ROLE_ADMIN')">
+          <a class="nav-link" [routerLink]="['liste-utilisateur']" [routerLinkActive]="['active']">
+            liste-utilisateur
+          </a>
+        </li>
+
+        <li class="nav-item" *ngIf="hasRole('ROLE_ADMIN')">
+          <a class="nav-link" [routerLink]="['ajouter-retard']" [routerLinkActive]="['active']">
+            Ajouter retard
+          </a>
+        </li>
+
+        <li class="nav-item" *ngIf="hasRole('ROLE_ADMIN')">
+          <a class="nav-link" [routerLink]="['bilan']" [routerLinkActive]="['active']">
+            Bilan
+          </a>
+        </li>
+
+        <!-- ////////////////////////   GESTIONNAIRE_ADMINISTRATIF    ////////////////////////////// -->
+
+        <li class="nav-item" *ngIf="hasRole('ROLE_GESTIONNAIRE_ADMINISTRATIF')">
+          <a class="nav-link " [routerLink]="['inscription']" [routerLinkActive]="['active']">
+            inscription
+          </a>
+        </li>
+
+        <!-- ////////////////////////   STAGIAIRE    ////////////////////////////// -->
+
+        
+
+        <li class="nav-item" *ngIf="hasRole('ROLE_STAGIAIRE')">
+          <a class="nav-link" [routerLink]="['ajouter-absence']" [routerLinkActive]="['active']">
+            Ajouter absence
+          </a>
+        </li>
+
+        <li class="nav-item" *ngIf="hasRole('ROLE_STAGIAIRE')">
+          <a class="nav-link" [routerLink]="['ajouter-retard']" [routerLinkActive]="['active']">
+            Ajouter retard
+          </a>
+        </li>
+
+                <!-- ////////////////////////   GESTINNAIRE_ABSENCE_RETARD    ////////////////////////////// -->
+
+
+        <li class="nav-item" *ngIf="hasRole('ROLE_GESTINNAIRE_ABSENCE_RETARD')">
+          <a class="nav-link" [routerLink]="['ajouter-absence']" [routerLinkActive]="['active']">
+            Ajouter absence
+          </a>
+        </li>
+
+        <li class="nav-item" *ngIf="hasRole('ROLE_GESTINNAIRE_ABSENCE_RETARD')">
+          <a class="nav-link" [routerLink]="['ajouter-retard']" [routerLinkActive]="['active']">
+            Ajouter retard
+          </a>
+        </li>
+
+        <!-- ////////////////////////   CANDIDAT    ////////////////////////////// -->
+
+        <li class="nav-item" *ngIf="hasRole('ROLE_CANDIDAT')">
+          <a class="nav-link " [routerLink]="['inscription']" [routerLinkActive]="['active']">
+            inscription
+          </a>
+        </li>
+
+        <!-- ////////////////////////   USER    ////////////////////////////// -->
+
+   
+
+        <li class="nav-item item-profil">
+          <a
+            class="nav-link"
+            [routerLink]="['profil']"
+            [routerLinkActive]="['active']"
+          >
+            Bienvenue {{utilisateur.sub}}
+          </a>
+        </li>
+
+        <li class="nav-item item-profil">
+          <a class="nav-link" [routerLink]="['connexion']" [routerLinkActive]="['active']">
+            Se deonnecter
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<router-outlet></router-outlet>
